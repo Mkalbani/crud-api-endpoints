@@ -1,55 +1,45 @@
-# Django CRUD App
+# Django CRUD App README
 
-This is a simple Flask web application that demonstrates CRUD (Create, Read, Update, Delete) operations using a MongoDB database. The app allows you to manage user records, including their names.
+This is a simple CRUD (Create, Read, Update, Delete) application built using Django and Django Rest Framework. It provides API endpoints to manage user records with `name` and `user_id` fields.
 
-## Prerequisites
+## Getting Started
 
-Before running the app, make sure you have the following dependencies installed:
+These instructions will help you set up and run the CRUD app on your local machine for development and testing purposes.
 
-- Python 3.x
-- Flask
-- Flask-PyMongo
-- pymongo
+### Prerequisites
 
-You can install these dependencies using pip:
+To run this app, you will need:
 
-```bash
-pip install flask flask-pymongo pymongo
-git clone https://github.com/mkothm/hng-internship-stage-2.git
-cd hng-internship-stage-2
-app.config["MONGO_URI"] = "mongodb://yourusername:yourpassword@yourmongodbhost/yourdatabasename"
-python app.py
-```
-# Create a User
-curl -X POST http://localhost:5000/api -H "Content-Type: application/json" -d '{"name": "John"}'
+- Python 3.7 or higher
+- Django 3.0 or higher
+- Django Rest Framework
 
-{
-    "message": "User created successfully",
-    "user": {
-        "_id": "user_id",
-        "name": "musa"
-    }
-}
-# Read Users
-[
-    {
-        "_id": "user_id1",
-        "name": "John"
-    },
-    {
-        "_id": "user_id2",
-        "name": "Alice"
-    },
-    ...
-]
+### Installation
 
-# Update User
-curl -X PUT http://localhost:5000/api/user_id1 -H "Content-Type: application/json" -d '{"name": "Updated Name"}'
-## Response 
-{
-    "message": "User updated successfully"
-}
-# Delete User
-{
-    "message": "User deleted successfully"
-}
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/Mkothm/crud-api-endpoints
+   cd crud-api-endpoints
+   ```
+### Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+### Install Project Dependencies
+pip install -r requirements.txt
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+### Run server
+python manage.py runserver
+
+### API Endpoints
+List all users: GET /api/users/
+Create a new user: POST /api/users/
+Retrieve a user by ID: GET /api/users/<int:pk>/
+Update a user by ID: PUT /api/users/<int:pk>/
+Delete a user by ID: DELETE /api/users/<int:pk>/
+
