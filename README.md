@@ -37,6 +37,7 @@ python manage.py createsuperuser
 python manage.py runserver
 
 ### API Endpoints
+```bash
 List all users: GET /api/users/
 
 Create a new user: POST /api/users/
@@ -46,4 +47,5 @@ Retrieve a user by ID: GET /api/users/<int:pk>/
 Update a user by ID: PUT /api/users/<int:pk>/
 
 Delete a user by ID: DELETE /api/users/<int:pk>/
+```
 
